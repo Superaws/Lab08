@@ -22,4 +22,16 @@ public class CustomListTest {
         // This will fail initially because deleteCity() doesn't exist
         assertFalse(list.hasCity(calgary));
     }
+
+    @Test
+    public void testCountCities() {
+        CustomList list = new CustomList();
+        City calgary = new City("Calgary", "AB");
+        // This will fail initially because deleteCity() doesn't exist
+        assertEquals(0, list.countCities());
+        list.addCity(calgary);
+        assertEquals(1, list.countCities());
+        list.deleteCity(calgary);
+        assertEquals(0, list.countCities());
+    }
 }
